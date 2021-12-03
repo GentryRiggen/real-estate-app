@@ -8,9 +8,9 @@ module.exports = {
       components: path.join(path.resolve(__dirname, './src/components')),
     },
   },
-  // style: {
-  //   postcss: {
-  //     plugins: [require('tailwindcss'), require('autoprefixer')],
-  //   },
-  // },
+  style: {
+    postcss: {
+      plugins: [require('tailwindcss'), require('autoprefixer')],
+    },
+  },
 };
