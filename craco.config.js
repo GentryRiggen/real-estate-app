@@ -5,7 +5,7 @@ module.exports = {
     alias: {
       domains: path.join(path.resolve(__dirname, './src/domains')),
       lib: path.join(path.resolve(__dirname, './src/lib')),
-      components: path.join(path.resolve(__dirname, './src/components')),
+      assets: path.join(path.resolve(__dirname, './src/assets')),
     },
   },
   style: {

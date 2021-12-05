@@ -10,7 +10,7 @@ export default function RouterScreen(props: Props) {
   return (
     <BrowserRouter>
       <Header />
-      <main className="container mx-auto">
+      <main className="container mx-auto py-9 px-2 md:px-4">
         <Switch>
           <Route
             path={PROPERTIES_LIST_ROUTE}
