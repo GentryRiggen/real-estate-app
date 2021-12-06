@@ -2,8 +2,8 @@
 
 Hi there 👋,
 
-Thanks for taking the time to complete this brief take-home assignment. *Please
-timebox your effort to a maximum of 3 hours.*
+Thanks for taking the time to complete this brief take-home assignment. _Please
+timebox your effort to a maximum of 3 hours._
 
 The goal of this exercise is to evaluate your frontend skills (React, styling,
 accessibility, responsive, 3rd-party integration, testing, and more). Feel free
@@ -26,7 +26,7 @@ Before getting started, please read this document carefully.
 
 # Acceptance criteria
 
-- Using [react-router](https://reactrouter.com/) *(included as a dependency)*, create the following page:
+- Using [react-router](https://reactrouter.com/) _(included as a dependency)_, create the following page:
   Property Listings
   - NOTE: This page should be built with the consideration that other pages
     would eventually be added. Not looking for any over-engineering here, simply
@@ -35,7 +35,7 @@ Before getting started, please read this document carefully.
 - Implement the following design:
   - A global sticky header containing the page name
   - Output the data from the SimplyRETS API into a list view of properties. Each
-    property should at least display the following information: 
+    property should at least display the following information:
     - `bedrooms`
     - `bathsFull` + `bathsHalf` (ex: 1 full + 3 half = 2.5)
     - `area` (as Sq Ft)
@@ -44,34 +44,34 @@ Before getting started, please read this document carefully.
     - `listDate` (MM/DD/YY)
     - `photo[0]`
     - Favorite state: White outlined heart if not favorited, red heart if
-      favorited. *(Heart SVG assets included.)*
+      favorited. _(Heart SVG assets included.)_
   - Use style definitions from Figma when possible
   - Desktop and Mobile screen sizes are provided. All screen widths from 375 to
     1180 should be supported. Intermediate responsive behavior should be
     inferred.
 - Get data from the SimplyRETS property endpoint on Property Listings page load
-  + cache in local storage
+  - cache in local storage
 - On the Property Listings page, the user can click the heart to save the mlsId
   associated. Store the saved/favorited properties in the browser local storage.
-- Add any tests to satisfy confidence in your application. *Be sure to document
-  the types of tests you choose and why*
+- Add any tests to satisfy confidence in your application. _Be sure to document
+  the types of tests you choose and why_
 - Styles can be handled in any manner you choose – i.e. sass, css, emotion,
   etc...
 - This application is expected to be built utilizing current patterns and best
-  practices of React (i.e. hooks). *Please do not use any other 3rd-party state
-  management libraries such as Redux or Mobx.* `react-query` is okay.
-- Explain any design decisions (*including items left out due to time
-  constraints*) in the README.md file
+  practices of React (i.e. hooks). _Please do not use any other 3rd-party state
+  management libraries such as Redux or Mobx._ `react-query` is okay.
+- Explain any design decisions (_including items left out due to time
+  constraints_) in the README.md file
 
 # What you will be assessed on
 
 - All functional requirements must be satisfied
 - The application successfully builds
 - The application successfully runs with no console errors or warnings
-- Production-like code that must be well coded, clean, and commented 
+- Production-like code that must be well coded, clean, and commented
 - UI must be responsive and clean
 - UI should closely match the mockup.
-- Intermediate screen width behavior should be reasonable. 
+- Intermediate screen width behavior should be reasonable.
 - General understanding of semantic markup and accessibility
 - Tests must be passing and meaningful
 - General React knowledge
@@ -87,7 +87,7 @@ provided.
 With latest Node LTS installed, run the following commands:
 
 ```sh
-yarn install && yarn start 
+yarn install && yarn start
 ```
 
 Navigate to `http://localhost:3000/`.
@@ -95,14 +95,15 @@ Navigate to `http://localhost:3000/`.
 ## What will you find inside this boilerplate
 
 In this boilerplate, you will find:
+
 - A standard [create-react-app (CRA)](https://create-react-app.dev/) with some
   provided assets (favorite SVG icons & fonts)
 - A `README.md` file to document your comments and design decisions
 - Inside the `package.json`, in addition to CRA dependencies, we've added the
   following packages:
-    - `prettier`: simple code formating
-    - `bootstrap`: styles reset baseline
-    - `react-router` & `react-router-dom`: For page routing
+  - `prettier`: simple code formating
+  - `bootstrap`: styles reset baseline
+  - `react-router` & `react-router-dom`: For page routing
 
 ## Design Mockup
 

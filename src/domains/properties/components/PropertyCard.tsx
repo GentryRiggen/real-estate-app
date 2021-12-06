@@ -6,6 +6,7 @@ import heartFill from 'assets/heart-fill.svg';
 import heartStroke from 'assets/heart-stroke.svg';
 import blankImage from 'assets/noImages.jpeg';
 import { PropertyFavoritesContext } from 'domains/properties/contexts/FavoritePropertiesContext';
+import { getStateAbbreviation } from 'lib/utils/address';
 
 type Props = {
   item: IProperty;
@@ -17,17 +18,16 @@ export default function PropertyCard({
   const firstImage = photos[0] || blankImage;
   const topLineItems = [
     { label: 'BR', value: `${property.bedrooms}` },
-    { label: 'Bath', value: `${property.bathsFull + property.bathsHalf}` },
+    { label: 'Bath', value: `${property.bathsFull + property.bathsHalf / 2}` },
     { label: 'Sq Ft', value: `${property.area}` },
   ]
     .filter((item) => item.value.length)
     .map((item) => `${item.value} ${item.label}`)
     .join(' | ');
   const fullAddress = [
-    `${address.streetNumber}`,
-    address.streetName,
+    `${address.streetNumber} ${address.streetName}`,
     address.city,
-    address.country,
+    getStateAbbreviation(address.state),
   ]
     .filter((item) => item.length)
     .join(', ');
@@ -46,11 +46,13 @@ export default function PropertyCard({
         className="absolute top-2 right-2 transform transition-transform hover:scale-110"
         onClick={() => toggleFavorite(mlsId)}
         type="button"
+        data-testid={`${mlsId}-favorite-btn`}
       >
         <img
           src={isFavorited ? heartFill : heartStroke}
           className="h-8 w-8"
           alt="favorite icon"
+          data-testid={`${mlsId}-favorite-icon`}
         />
       </button>
 
