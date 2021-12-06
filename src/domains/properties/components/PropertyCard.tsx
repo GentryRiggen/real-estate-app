@@ -1,15 +1,15 @@
 import React, { useContext } from 'react';
 import { format } from 'date-fns';
+import { Link } from 'react-router-dom';
 
 import IProperty, {
   getPropertyAddress,
 } from 'domains/properties/models/IProperty';
+import { PropertyFavoritesContext } from 'domains/properties/contexts/FavoritePropertiesContext';
+import { PROPERTIES_LIST_ROUTE } from 'domains/application/constants/routes';
 import heartFill from 'assets/heart-fill.svg';
 import heartStroke from 'assets/heart-stroke.svg';
-import { PropertyFavoritesContext } from 'domains/properties/contexts/FavoritePropertiesContext';
 import blankImage from 'assets/noImages.jpeg';
-import { Link } from 'react-router-dom';
-import { PROPERTIES_LIST_ROUTE } from 'domains/application/constants/routes';
 
 type Props = {
   item: IProperty;

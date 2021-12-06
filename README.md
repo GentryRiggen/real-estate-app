@@ -42,6 +42,8 @@
 
 - Given more time I would add some of the following:
   - Redux like I mentioned before
+  - Round out more tests using React Testing Library. For example I didn't test
+    the property details screen since that wasn't a requirement
   - End to End tests (I enjoy using Cypress)
   - Next.js or any other PWA library. Running this app through Lighthouse shows
     that "Largest Contentful Paint" can be slow (like any SPA app) and server

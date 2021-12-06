@@ -1,5 +1,6 @@
-import { HeaderContext } from 'domains/application/contexts/HeaderContext';
 import { useContext } from 'react';
+
+import { HeaderContext } from 'domains/application/contexts/HeaderContext';
 
 export default function Header() {
   const { title } = useContext(HeaderContext);
