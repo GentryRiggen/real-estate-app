@@ -11,7 +11,17 @@
     "prebuild": "yarn ci",
     "build": "craco build",
     "test": "craco test",
-    "eject": "craco eject"
+    "test:pre-commit": "CI=true craco test --findRelatedTests",
+    "eject": "craco eject",
+    "lint": "eslint",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "prettier --write",
+      "yarn lint",
+      "yarn test:pre-commit"
+    ]
   },
   "repository": "https://github.com/reside-eng/rets-react-take-home-assignment-core.git",
   "author": "Side Inc.",
@@ -44,6 +54,8 @@
     "@types/react-dom": "^17.0.11",
     "@types/react-router-dom": "^5.3.2",
     "autoprefixer": "^9",
+    "husky": ">=6",
+    "lint-staged": ">=10",
     "postcss": "^7",
     "prettier": "2.5.0",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat"

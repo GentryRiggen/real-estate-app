@@ -4,9 +4,9 @@ import { format } from 'date-fns';
 import IProperty from 'domains/properties/models/IProperty';
 import heartFill from 'assets/heart-fill.svg';
 import heartStroke from 'assets/heart-stroke.svg';
-import blankImage from 'assets/noImages.jpeg';
 import { PropertyFavoritesContext } from 'domains/properties/contexts/FavoritePropertiesContext';
 import { getStateAbbreviation } from 'lib/utils/address';
+import blankImage from 'assets/noImages.jpeg';
 
 type Props = {
   item: IProperty;
@@ -41,6 +41,7 @@ export default function PropertyCard({
         src={firstImage}
         alt={`Property - ${fullAddress}`}
         className="w-full max-h-72 mb-4 overflow-hidden rounded"
+        data-testid={`${mlsId}-thumbnail`}
       />
       <button
         className="absolute top-2 right-2 transform transition-transform hover:scale-110"
