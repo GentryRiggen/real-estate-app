@@ -25,7 +25,7 @@ export default function PropertyCard({
     .map((item) => `${item.value} ${item.label}`)
     .join(' | ');
   const fullAddress = [
-    `${address.streetNumber} ${address.streetName}`,
+    address.full,
     address.city,
     getStateAbbreviation(address.state),
   ]
@@ -36,7 +36,10 @@ export default function PropertyCard({
   const isFavorited = !!favorites[mlsId];
 
   return (
-    <div className="max-w-xs mx-auto text-base relative">
+    <div
+      className="max-w-xs mx-auto text-base relative"
+      data-testid={`${mlsId}-property-card`}
+    >
       <img
         src={firstImage}
         alt={`Property - ${fullAddress}`}
@@ -44,7 +47,7 @@ export default function PropertyCard({
         data-testid={`${mlsId}-thumbnail`}
       />
       <button
-        className="absolute top-2 right-2 transform transition-transform hover:scale-110"
+        className="absolute top-2 right-2 rounded-lg transform transition-transform hover:scale-110 hover:shadow-lg hover:bg-white hover:bg-opacity-10"
         onClick={() => toggleFavorite(mlsId)}
         type="button"
         data-testid={`${mlsId}-favorite-btn`}
@@ -57,16 +60,22 @@ export default function PropertyCard({
         />
       </button>
 
-      <p data-test="specs" className="text-xl font-semibold mb-3 leading-5">
+      <p
+        data-testid={`${mlsId}-specs`}
+        className="text-xl font-semibold mb-3 leading-5"
+      >
         {topLineItems}
       </p>
-      <p data-test="price" className="text-2xl font-bold leading-6 mb-3">
+      <p
+        data-testid={`${mlsId}-price`}
+        className="text-2xl font-bold leading-6 mb-3"
+      >
         ${listPrice.toLocaleString()}
       </p>
-      <p data-test="address" className="text-sm.5 mb-2">
+      <p data-testid={`${mlsId}-address`} className="text-sm.5 mb-2">
         {fullAddress}
       </p>
-      <p data-test="list-date" className="text-sm text-base-light">
+      <p data-testid={`${mlsId}-list-date`} className="text-sm text-base-light">
         Listed: {format(Date.parse(listDate), 'M/d/yyyy')}
       </p>
     </div>

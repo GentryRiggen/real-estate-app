@@ -43,12 +43,13 @@ export default function GridList({ url, Component, pageSize = 25 }: Props) {
   const onBottomHit = React.useCallback(async () => {
     if (isLoading || !hasMore) return;
 
+    setIsLoading(true);
     const newPage = page + 1;
     setPage(newPage);
     await getItems(newPage);
   }, [page, getItems, isLoading, hasMore]);
 
-  useBottomScrollListener(onBottomHit, { offset: 300, debounce: 250 });
+  useBottomScrollListener(onBottomHit, { offset: 600, debounce: 500 });
 
   return (
     <div className="w-full">
@@ -59,7 +60,7 @@ export default function GridList({ url, Component, pageSize = 25 }: Props) {
       </div>
 
       {isLoading && (
-        <div className="flex flex-col w-full items-center">
+        <div className="flex flex-col w-full items-center p-8">
           <Spinner />
         </div>
       )}

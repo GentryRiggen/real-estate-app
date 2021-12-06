@@ -20,8 +20,10 @@ export async function getRequest<T>(url: string): Promise<T | null> {
     auth: API_AUTH,
   });
 
-  if (response.status < 300)
+  if (response.status < 300) {
     setLocalItem(API_STORAGE_KEY, R.assoc(url, response.data, cache));
+    data = response.data;
+  }
 
-  return response.data;
+  return data;
 }
