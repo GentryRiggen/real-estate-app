@@ -37,7 +37,7 @@ export default function PropertyCard({
 
   return (
     <div
-      className="max-w-xs mx-auto text-base relative"
+      className="max-w-xs mx-auto text-foreground relative"
       data-testid={`${mlsId}-property-card`}
     >
       <img
@@ -75,7 +75,10 @@ export default function PropertyCard({
       <p data-testid={`${mlsId}-address`} className="text-sm.5 mb-2">
         {fullAddress}
       </p>
-      <p data-testid={`${mlsId}-list-date`} className="text-sm text-base-light">
+      <p
+        data-testid={`${mlsId}-list-date`}
+        className="text-sm text-foreground-light"
+      >
         Listed: {format(Date.parse(listDate), 'M/d/yyyy')}
       </p>
     </div>

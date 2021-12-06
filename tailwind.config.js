@@ -5,8 +5,8 @@ module.exports = {
     extend: {
       colors: {
         header: '#f4f4f4',
-        base: '#2d2d2d',
-        'base-light': '#979797',
+        foreground: '#2d2d2d',
+        'foreground-light': '#979797',
       },
       fontSize: {
         'sm.5': ['0.9375rem', '1rem'],
