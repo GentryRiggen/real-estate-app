@@ -1,5 +1,6 @@
 import { render, screen, act, fireEvent } from '@testing-library/react';
 import axios from 'axios';
+import { BrowserRouter } from 'react-router-dom';
 
 import PropertiesListScreen from '../PropertiesListScreen';
 import IProperty, { mockProperty } from 'domains/properties/models/IProperty';
@@ -40,7 +41,11 @@ describe('when the api responses are cached', () => {
         }),
       );
       await act(async () => {
-        render(<PropertiesListScreen />);
+        render(
+          <BrowserRouter>
+            <PropertiesListScreen />
+          </BrowserRouter>,
+        );
       });
       // expect(screen.getByRole('heading').textContent).toEqual('Property List');
       expect(screen.getAllByTestId(/[0-9]+-property-card/).length).toBe(25);
@@ -58,11 +63,19 @@ describe('when the api responses are cached', () => {
           }),
         );
         await act(async () => {
-          render(<PropertiesListScreen />);
+          render(
+            <BrowserRouter>
+              <PropertiesListScreen />
+            </BrowserRouter>,
+          );
         });
         await act(async () => {
           await fireEvent.scroll(window, { target: { scrollY: 9999 } });
-          render(<PropertiesListScreen />);
+          render(
+            <BrowserRouter>
+              <PropertiesListScreen />
+            </BrowserRouter>,
+          );
         });
         expect(axios.get).not.toHaveBeenCalled();
         expect(screen.getAllByTestId(/[0-9]+-property-card/).length).toBe(50);
@@ -74,7 +87,11 @@ describe('when the api responses are cached', () => {
 describe('when the api response are not cached', () => {
   it('should make api request', async () => {
     await act(async () => {
-      render(<PropertiesListScreen />);
+      render(
+        <BrowserRouter>
+          <PropertiesListScreen />
+        </BrowserRouter>,
+      );
     });
     expect(axios.get).toHaveBeenCalled();
     expect(screen.getByTestId('blankslate').textContent).toBe('No Results');

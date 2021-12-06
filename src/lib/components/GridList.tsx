@@ -4,6 +4,7 @@ import { useBottomScrollListener } from 'react-bottom-scroll-listener';
 
 import { getRequest } from 'lib/data/api';
 import Spinner from 'lib/components/Spinner';
+import Blankslate from 'lib/components/Blankslate';
 
 type Props = {
   url: string;
@@ -53,24 +54,14 @@ export default function GridList({ url, Component, pageSize = 25 }: Props) {
 
   return (
     <div className="w-full">
-      {!isLoading && items.length < 1 && (
-        <div className="flex flex-col w-full items-center p-8">
-          <p data-testid="blankslate" className="text-foreground text-2xl">
-            No Results
-          </p>
-        </div>
-      )}
+      {!isLoading && items.length < 1 && <Blankslate>No Results</Blankslate>}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-x-8 md:gap-x-14 gap-y-9">
         {items.map((item, index) => (
           <Component key={`grid-list-item-${index}`} item={item} />
         ))}
       </div>
 
-      {isLoading && (
-        <div className="flex flex-col w-full items-center p-8">
-          <Spinner />
-        </div>
-      )}
+      {isLoading && <Spinner centered />}
     </div>
   );
 }

@@ -1,7 +1,9 @@
-import React from 'react';
+type Props = {
+  centered?: boolean;
+};
 
-export default function Spinner() {
-  return (
+export default function Spinner({ centered = false }: Props) {
+  const spinnerSVG = (
     <svg
       className="animate-spin h-12 w-12 text-blue-400"
       xmlns="http://www.w3.org/2000/svg"
@@ -23,4 +25,11 @@ export default function Spinner() {
       ></path>
     </svg>
   );
+
+  if (centered)
+    return (
+      <div className="flex flex-col w-full items-center p-8">{spinnerSVG}</div>
+    );
+
+  return spinnerSVG;
 }

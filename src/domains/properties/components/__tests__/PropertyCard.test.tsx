@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
 
 import PropertyCard from '../PropertyCard';
 import {
@@ -15,9 +16,12 @@ beforeEach(() => {
 describe('when the property has all details', () => {
   it('displays all property summary details', async () => {
     render(
-      <PropertyFavoritesProvider>
-        <PropertyCard item={mockProperty} />
-      </PropertyFavoritesProvider>,
+      <BrowserRouter>
+        <PropertyFavoritesProvider>
+          <PropertyCard item={mockProperty} />
+        </PropertyFavoritesProvider>
+        ,
+      </BrowserRouter>,
     );
 
     expect((screen.getByTestId('1-thumbnail') as HTMLImageElement).src).toBe(
@@ -41,9 +45,12 @@ describe('when the property has all details', () => {
 describe('when the property is missing photos', () => {
   it('displays partial property summary details', async () => {
     render(
-      <PropertyFavoritesProvider>
-        <PropertyCard item={{ ...mockProperty, photos: [] }} />
-      </PropertyFavoritesProvider>,
+      <BrowserRouter>
+        <PropertyFavoritesProvider>
+          <PropertyCard item={{ ...mockProperty, photos: [] }} />
+        </PropertyFavoritesProvider>
+        ,
+      </BrowserRouter>,
     );
 
     expect((screen.getByTestId('1-thumbnail') as HTMLImageElement).src).toBe(

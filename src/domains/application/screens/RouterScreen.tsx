@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { PROPERTIES_LIST_ROUTE } from 'domains/application/constants/routes';
 import PropertiesListScreen from 'domains/properties/screens/PropertiesListScreen';
 import Header from 'domains/application/components/Header';
+import PropertyDetailsScreen from 'domains/properties/screens/PropertyDetailsScreen';
 
 export default function RouterScreen() {
   return (
@@ -13,6 +14,11 @@ export default function RouterScreen() {
           <Route
             path={PROPERTIES_LIST_ROUTE}
             component={PropertiesListScreen}
+            exact
+          />
+          <Route
+            path={`${PROPERTIES_LIST_ROUTE}:id`}
+            component={PropertyDetailsScreen}
             exact
           />
           <Redirect to={PROPERTIES_LIST_ROUTE} />

@@ -1,3 +1,5 @@
+import { getStateAbbreviation } from 'lib/utils/address';
+
 export default interface IProperty {
   property: {
     area: number;
@@ -16,6 +18,15 @@ export default interface IProperty {
   photos: string[];
   listPrice: number;
 }
+
+export const getPropertyAddress = (property: IProperty) =>
+  [
+    property.address.full,
+    property.address.city,
+    getStateAbbreviation(property.address.state),
+  ]
+    .filter((item) => item.length)
+    .join(', ');
 
 export const mockProperty: IProperty = {
   property: {
