@@ -7,6 +7,8 @@
   },
   "scripts": {
     "start": "craco start",
+    "ci": "yarn install --frozen-lockfile",
+    "prebuild": "yarn ci",
     "build": "craco build",
     "test": "craco test",
     "eject": "craco eject"
