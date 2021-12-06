@@ -53,7 +53,6 @@ jobs:
         working-directory: client
       - name: Deploy to Firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
-        working-directory: client
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_REAL_ESTATE_APP_F45E1 }}'
