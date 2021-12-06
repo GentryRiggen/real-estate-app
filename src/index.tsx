@@ -3,16 +3,16 @@ import ReactDOM from 'react-dom';
 
 import 'lib/styles/global.css';
 import RouterScreen from 'domains/application/screens/RouterScreen';
-import { APICacheProvider } from 'lib/data/APICacheContext';
 import { HeaderProvider } from 'domains/application/contexts/HeaderContext';
+import { PropertyFavoritesProvider } from 'domains/properties/contexts/FavoritePropertiesContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    <APICacheProvider>
+    <PropertyFavoritesProvider>
       <HeaderProvider>
         <RouterScreen />
       </HeaderProvider>
-    </APICacheProvider>
+    </PropertyFavoritesProvider>
   </React.StrictMode>,
   document.getElementById('root'),
 );
