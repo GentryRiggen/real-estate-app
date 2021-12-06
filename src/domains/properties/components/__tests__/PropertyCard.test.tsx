@@ -13,7 +13,7 @@ beforeEach(() => {
 });
 
 describe('when the property has all details', () => {
-  test('displays all property summary details', async () => {
+  it('displays all property summary details', async () => {
     render(
       <PropertyFavoritesProvider>
         <PropertyCard item={mockProperty} />
@@ -39,7 +39,7 @@ describe('when the property has all details', () => {
 });
 
 describe('when the property is missing photos', () => {
-  test('displays partial property summary details', async () => {
+  it('displays partial property summary details', async () => {
     render(
       <PropertyFavoritesProvider>
         <PropertyCard item={{ ...mockProperty, photos: [] }} />
